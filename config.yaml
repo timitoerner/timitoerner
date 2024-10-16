@@ -1,14 +1,50 @@
 baseURL: 'http://timitoerner.org/'
 defaultContentLanguage: en
 languageCode: en
-title: Home - timitoerner
-theme: ["PaperMod"]
+title: timitoerner
+theme: "PaperMod"
 
 enableRobotsTXT: true
 enableGitInfo: true
 
 params:
   defaultTheme: dark
+
+  #homeInfoParams:
+  #  Title: Hi there wave
+  #  Content: Welcome to this webpage!
+
+  profileMode:
+    enabled: true
+    title: "I am timitoerner,"
+    subtitle: "a nobody who does some programming and linux stuff..."
+    #imageUrl: "<image link>" # optional
+    #imageTitle: "<title of image as alt>" # optional
+    #imageWidth: 120 # custom size
+    #imageHeight: 120 # custom size
+    buttons:
+      - name: Archive
+        url: "/archive"
+
+  socialIcons:
+    - name: "Github"
+      url: "https://github.com/timitoerner"
+    - name: "Gitlab"
+      url: "https://gitlab.com/timitoerner"
+    - name: "Mastodon"
+      url: "https://mastodon.social/@timitoerner"
+
+
+  # this is for searching
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 0.4
+    minMatchCharLength: 0
+    # limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
+    keys: ["title", "permalink", "summary", "content"]
 
 menu:
   main:
@@ -20,8 +56,14 @@ menu:
       name: Tags
       url: /tags/
       weight: 2
-    - identifier: github
-      url: 'https://github.com/timitoerner'
-      weight: 3
-      pre: <span data-feather='github'></span>
+    - identifier: search
+      name: Search  
+      url: /search/
+      weight: 10
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
 
